@@ -14,9 +14,9 @@ class linked:
     def traverse(self):
         t=self.head
         while(t!=None):
-            print(t.data)
+            print(t.data,end=" ")
             t=t.next
-            
+        
     # insertion in linkedlist at fornt of the linked list..
     
     def insertion_at_front(self):
@@ -38,10 +38,17 @@ class linked:
         t.next=node(int(input("enter a element to add at end :")))
         self.traverse()
     
-    
-    
-    
-    
+    #insertion_at_particular point ..
+    def insertion_at_particular(self):
+        note_point=int(input(" enter the node point to add: "))
+        temp=self.head
+        for i in range(note_point-1):
+            temp1=temp
+            temp=temp.next
+        adss=temp1.next
+        temp1.next=node(int(input(" enter the num for new node :")))
+        temp1.next.next=adss
+        self.traverse()
     
     
 def main():
@@ -69,8 +76,8 @@ def creation_linkedlist():
 
 creation_linkedlist()     
 #llist.insertion_at_front()
-llist.insertion_at_end()
-
+#llist.insertion_at_end()
+llist.insertion_at_particular()
 
 
 
