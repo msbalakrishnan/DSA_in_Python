@@ -1,3 +1,23 @@
+    
+def main():
+    print("0 . exit \n1 . creation \n2 . traverse \n3.1 insertion_at_front \n3.2 insertion_at_end\n3.3 insertion_at_particular point \n4 . search \n ")
+    option=int(input("enter the option ,creation is must done at 1st :"))
+    if option==0:
+        print("thank you...")
+    elif option==1:
+        creation_linkedlist()
+    elif option==2:
+        llist.traverse()
+    elif option==3.1 :
+        llist.insertion_at_front()
+    elif option==3.2 :
+        llist.insertion_at_end()
+    elif option==3.3 :
+        llist.insertion_at_particular()
+    elif option==4 :
+        llist.search()
+    else:
+        print(" wrong option ... plss check again ...")
 #here creating the class for creating the node with data and next property
 
 class node:
@@ -16,7 +36,8 @@ class linked:
         while(t!=None):
             print(t.data,end=" ")
             t=t.next
-        
+        print("\n")
+        main()
     # insertion in linkedlist at fornt of the linked list..
     
     def insertion_at_front(self):
@@ -24,10 +45,11 @@ class linked:
         self.head=node(int(input("enter a element to add at front ..")))
         self.head.next=t
         print(" insertion_at_front successfully..")
-        if int(input("want to traverse (1/0)"))==1:
-            self.traverse()
-        else:
-            print(" thank you ..")
+        main()
+        #if int(input("want to traverse (1/0)"))==1:
+         #   self.traverse()
+        #else:
+         #   print(" thank you ..")
     
     #insertion_at_end 
     
@@ -36,8 +58,8 @@ class linked:
         while t.next!=None:
             t=t.next
         t.next=node(int(input("enter a element to add at end :")))
-        self.traverse()
-    
+        #self.traverse()
+        main()
     #insertion_at_particular point ..
     def insertion_at_particular(self):
         note_point=int(input(" enter the node point to add: "))
@@ -48,11 +70,28 @@ class linked:
         adss=temp1.next
         temp1.next=node(int(input(" enter the num for new node :")))
         temp1.next.next=adss
-        self.traverse()
-    
-    
-def main():
-    print("1 . creation \n2. traverse \n 3.1 insertion_at_front \n 3.2 insertion_at_end \n enter your choise :")
+        main()
+        #self.traverse()
+ 
+    #search element in the linkedlist 
+    def search(self):
+        temp=self.head
+        element_to_search=int(input("enter the element_to_search : "))
+        i=1
+        flag=True
+        while temp!=None:
+            if temp.data == element_to_search:
+                print(temp.data," is found at ",i,"th node..",temp.next)
+                flag=False
+                break
+            
+            temp=temp.next
+        if flag:
+            print(" element is not founded ..")
+            #self.traverse()
+        main()  
+                       
+            
 
 #when i create obj for this class , it create a head = none
 
@@ -69,16 +108,17 @@ def creation_linkedlist():
             temp=temp.next
     else:
         print("linked list created successfully ..")
-        if int(input(" want to traverse :(1/0)"))==1:
-            llist.traverse()
-        else:
-            print(" thank you ...")
-
-creation_linkedlist()     
-#llist.insertion_at_front()
-#llist.insertion_at_end()
-llist.insertion_at_particular()
-
+        #if int(input(" want to traverse :(1/0)"))==1:
+         #   llist.traverse()
+        #else:
+         #   print(" thank you ...")
+        main()
+# creation_linkedlist()     
+# llist.insertion_at_front()
+# llist.insertion_at_end()
+# llist.insertion_at_particular()
+# llist.search()
+main()
 
 
 
