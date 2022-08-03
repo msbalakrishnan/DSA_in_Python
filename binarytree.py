@@ -1,3 +1,5 @@
+# create the class with constructor to create a node element 
+
 class BinaryTree:
 
     def __init__(self, data):
@@ -5,7 +7,7 @@ class BinaryTree:
         self.left = None
         self.right = None
         self.data = data
-
+# code for insertion in binary tree , basically binary  tree contructed based by BST 
     def insert(self, data):
 
         if self.data:
@@ -22,6 +24,8 @@ class BinaryTree:
                     self.right.insert(data)
         else:
             self.data = data
+           
+    # good to refer the another another search code because it contain erro so i used the try block . but it running good 
     def search(self,data):
      try:
         self.flag=False
