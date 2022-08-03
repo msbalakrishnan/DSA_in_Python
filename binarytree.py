@@ -1,7 +1,7 @@
 class BinaryTree:
 
     def __init__(self, data):
-
+        self.flag= False
         self.left = None
         self.right = None
         self.data = data
@@ -11,6 +11,7 @@ class BinaryTree:
         if self.data:
             if data < self.data:
                 if self.left is None:
+                    
                     self.left = BinaryTree(data)
                 else:
                     self.left.insert(data)
@@ -21,7 +22,25 @@ class BinaryTree:
                     self.right.insert(data)
         else:
             self.data = data
-
+    def search(self,data):
+     try:
+        self.flag=False
+        if self.data:
+            if self.data==data:
+                
+                
+                print(" found at root ")
+                flag=True
+            elif data< self.data :
+                self.left.search(data)
+            elif data> self.data:
+                self.right.search(data)
+            
+     except:
+         print("element is not found")
+        
+        
+        
     def PrintTree(self):
         if self.left:
             self.left.PrintTree()
@@ -40,3 +59,6 @@ for i in range(int(input("enter how many number you want : "))):
 # root.insert(52)
 
 root.PrintTree()
+root.search(int(input(" enter a element to search :")))
+# if root.flag:
+#     Print("not found ..")
