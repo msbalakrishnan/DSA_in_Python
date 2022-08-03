@@ -1,25 +1,30 @@
     
 def main():
-    print("0 . exit \n1 . creation \n2 . traverse \n3.1 insertion_at_front \n3.2 insertion_at_end\n3.3 insertion_at_particular point \n4 . search \n ")
-    option=int(input("enter the option ,creation is must done at 1st :"))
+    print("0. Exit \n1. Creation \n2. Traverse \n3. Insertion\n4. Search \n ")
+    option=int(input("Enter the option ,creation must be done at 1st :"))
     if option==0:
-        print("thank you...")
+        print("Thank you...")
     elif option==1:
-        creation_linkedlist()
+        create_linkedlist()
     elif option==2:
         llist.traverse()
-    elif option==3.1 :
-        llist.insertion_at_front()
-    elif option==3.2 :
-        llist.insertion_at_end()
-    elif option==3.3 :
-        llist.insertion_at_particular()
+    elif option==3:
+        print("...Please select where to insert the number...")
+        print(" 1.Insertion_at_front \n 2.insertion_at_particular point \n 3.insertion_at_end")
+        choice=int(input("\nEnter the choice :"))
+        if choice == 1:
+           llist.insertion_at_front()
+        elif choice == 2:
+            llist.insertion_at_particular()
+        elif choice == 3:
+            llist.insertion_at_end()
     elif option==4 :
-        llist.search()
+            llist.search()
     else:
         print(" wrong option ... plss check again ...")
-#here creating the class for creating the node with data and next property
+        main()
 
+#here creating the class for creating the node with data and next property
 class node:
     def __init__(self,data):
         self.data=data
@@ -29,7 +34,7 @@ class linked:
     def __init__(self):
         self.head=None
         
-    # create a function to traverse the linked list..
+# create a function to traverse the linked list..
     
     def traverse(self):
         t=self.head
@@ -38,20 +43,23 @@ class linked:
             t=t.next
         print("\n")
         main()
-    # insertion in linkedlist at fornt of the linked list..
+# insertion in linkedlist at fornt of the linked list..
     
     def insertion_at_front(self):
         t=self.head
-        self.head=node(int(input("enter a element to add at front ..")))
-        self.head.next=t
+        newnode=node(int(input("enter a element to add at front :")))
+        newnode.next=self.head
+        self.head=newnode
+        #self.head.next=t
         print(" insertion_at_front successfully..")
         main()
+        
         #if int(input("want to traverse (1/0)"))==1:
-         #   self.traverse()
+        #   self.traverse()
         #else:
-         #   print(" thank you ..")
+        #   print(" thank you ..")
     
-    #insertion_at_end 
+#insertion_at_end 
     
     def insertion_at_end(self):
         t=self.head
@@ -60,7 +68,7 @@ class linked:
         t.next=node(int(input("enter a element to add at end :")))
         #self.traverse()
         main()
-    #insertion_at_particular point ..
+#insertion_at_particular point ..
     def insertion_at_particular(self):
         note_point=int(input(" enter the node point to add: "))
         temp=self.head
@@ -73,7 +81,7 @@ class linked:
         main()
         #self.traverse()
  
-    #search element in the linkedlist 
+#search element in the linkedlist 
     def search(self):
         temp=self.head
         element_to_search=int(input("enter the element_to_search : "))
@@ -96,8 +104,8 @@ class linked:
 #when i create obj for this class , it create a head = none
 
 llist=linked() 
-#linkedlist creation code wrap in the function..
-def creation_linkedlist():
+#linkedlist create code wrap in the function..
+def create_linkedlist():
     n=int(input("linkedlist is created \n enter how any element to add in linked list :"))
     for i in range(n):
         if i==0:
@@ -113,12 +121,11 @@ def creation_linkedlist():
         #else:
          #   print(" thank you ...")
         main()
-# creation_linkedlist()     
+# create_linkedlist()     
 # llist.insertion_at_front()
 # llist.insertion_at_end()
 # llist.insertion_at_particular()
 # llist.search()
 main()
-
 
 
