@@ -1,6 +1,6 @@
     
 def main():
-    print("0. Exit \n1. Creation \n2. Traverse \n3. Insertion\n4. Search \n ")
+    print("0. Exit \n1. Creation \n2. Traverse \n3. Insertion\n4. Deletion \n5.. Search \n ")
     option=int(input("Enter the option ,creation must be done at 1st :"))
     if option==0:
         print("Thank you...")
@@ -18,7 +18,18 @@ def main():
             llist.insertion_at_particular()
         elif choice == 3:
             llist.insertion_at_end()
-    elif option==4 :
+    elif option==4:
+        print("...Please select which element to delete...")
+        print(" 1.Deletion_at_front \n 2.Deletion_at_particular point \n 3.Deletion_at_end")
+        choice=int(input("\nEnter the choice :"))
+        if choice == 1:
+           llist.deletion_at_front()
+        elif choice == 2:
+            llist.deletion_at_particular()
+        elif choice == 3:
+            llist.deletion_at_end()
+    
+    elif option==5 :
             llist.search()
     else:
         print(" wrong option ... plss check again ...")
@@ -97,7 +108,38 @@ class linked:
         if flag:
             print(" element is not founded ..")
             #self.traverse()
-        main()  
+        main()
+#deletion at front of linked list
+    def deletion_at_front(self):
+        temp=self.head
+        self.head=temp.next
+        temp.next=None
+        print("The element at front of the list is deleted...")
+        main()
+#deletion at end of the list
+    def deletion_at_end(self):
+        temp=self.head.next
+        prev=self.head
+        while temp.next is not  None:
+            temp=temp.next
+            prev=prev.next
+        prev.next=None
+        print("The element at end of the list is FDeleted...")
+        main()
+#deletion at particular point
+    def deletion_at_particular(self):
+        temp=self.head.next
+        prev=self.head
+        node_point=int(input("Enter the position of the element to delete..."))
+        for j in range(1,(node_point)-1):
+            temp=temp.next
+            prev=prev.next
+        prev.next=temp.next
+        temp.next=None
+        print("The element at particular point Deleted...")
+        main()
+        
+            
                        
             
 
@@ -127,5 +169,4 @@ def create_linkedlist():
 # llist.insertion_at_particular()
 # llist.search()
 main()
-
 
