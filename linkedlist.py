@@ -139,7 +139,47 @@ class linked:
         print("The element at particular point Deleted...")
         main()
         
-            
+  #deletion at front by msbala
+
+   def delete_at_front(self):
+        temp=self.head
+        self.head=self.head.next
+        print(temp.data," was deleted ...")
+        temp.next=None
+        
+  #by msbala del at end 
+    
+    def delete_at_end(self):
+        temp=self.head
+        while temp.next!=None:
+            pre=temp
+            temp=temp.next
+        print(temp.data," was deleted ...")
+        pre.next=None
+        
+    #this deletion using key or element  .. 
+    
+    def delete_using_key(self,data):
+        temp=self.head
+        if temp.data!=data:
+            t=True
+            while temp!=None:
+                # pre=temp
+                if temp.next==None:
+                    temp=temp.next
+                    break
+                if temp.next.data==data:
+                    break
+                temp=temp.next
+            if temp==None:
+                print("element is not found to delete..")
+            else:
+                linking=temp.next.next
+                temp.next.next=None
+                print("deleted successfully..")
+                temp.next=linking
+        else:
+            self.delete_at_front()
                        
             
 
