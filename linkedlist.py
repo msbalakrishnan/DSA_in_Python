@@ -79,7 +79,14 @@ class linked:
             while temp.next!=None:
                 temp=temp.next
             temp.next=node(data)
-    
+     # find the length of the linkedlist .. 
+    def length(self):
+        temp=self.head
+        count=0
+        while temp:
+            count+=1
+            temp=temp.next
+        print(count," length..")
 #insertion_at_end 
     
     def insertion_at_end(self):
