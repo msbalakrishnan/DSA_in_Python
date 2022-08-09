@@ -71,6 +71,7 @@ class linked:
         #   print(" thank you ..")
       
     # add function just push the elemrnt in the linkedlist eventhough it not created..
+    
     def add(self,data):
         if self.head==None:
             self.head=node(data)
@@ -79,7 +80,9 @@ class linked:
             while temp.next!=None:
                 temp=temp.next
             temp.next=node(data)
+            
      # find the length of the linkedlist .. 
+    
     def length(self):
         temp=self.head
         count=0
@@ -87,6 +90,7 @@ class linked:
             count+=1
             temp=temp.next
         print(count," length..")
+        
 #insertion_at_end 
     
     def insertion_at_end(self):
@@ -96,7 +100,21 @@ class linked:
         t.next=node(int(input("enter a element to add at end :")))
         #self.traverse()
         main()
+        
+ #reverse the linked list ..
+
+    def reverse(self):
+        pre=None
+        current=self.head
+        while current:
+            next_node=current.next
+            current.next=pre
+            pre=current
+            current=next_node
+        self.head=pre
+        
 #insertion_at_particular point ..
+
     def insertion_at_particular(self):
         note_point=int(input(" enter the node point to add: "))
         temp=self.head
@@ -110,6 +128,7 @@ class linked:
         #self.traverse()
  
 #search element in the linkedlist 
+
     def search(self):
         temp=self.head
         element_to_search=int(input("enter the element_to_search : "))
@@ -126,14 +145,18 @@ class linked:
             print(" element is not founded ..")
             #self.traverse()
         main()
+        
 #deletion at front of linked list
+
     def deletion_at_front(self):
         temp=self.head
         self.head=temp.next
         temp.next=None
         print("The element at front of the list is deleted...")
         main()
+        
 #deletion at end of the list
+
     def deletion_at_end(self):
         temp=self.head.next
         prev=self.head
@@ -143,7 +166,9 @@ class linked:
         prev.next=None
         print("The element at end of the list is FDeleted...")
         main()
+        
 #deletion at particular point
+
     def deletion_at_particular(self):
         temp=self.head.next
         prev=self.head
@@ -203,7 +228,9 @@ class linked:
 #when i create obj for this class , it create a head = none
 
 llist=linked() 
+
 #linkedlist create code wrap in the function..
+
 def create_linkedlist():
     n=int(input("linkedlist is created \n enter how any element to add in linked list :"))
     for i in range(n):
