@@ -69,6 +69,16 @@ class linked:
         #   self.traverse()
         #else:
         #   print(" thank you ..")
+      
+    # add function just push the elemrnt in the linkedlist eventhough it not created..
+    def add(self,data):
+        if self.head==None:
+            self.head=node(data)
+        else:
+            temp=self.head
+            while temp.next!=None:
+                temp=temp.next
+            temp.next=node(data)
     
 #insertion_at_end 
     
