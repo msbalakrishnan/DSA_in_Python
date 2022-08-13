@@ -45,8 +45,31 @@ class BinaryTree:
             
      except:
          print("element is not found")
+            
+     # print the inorder traversal of the binay tree ( left-data-right)
+    
         
-        
+    def inorder_traverse(self,root):
+        if root:
+            root.inorder_traverse(root.left)
+            print(root.data,end=" ")
+            root.inorder_traverse(root.right)
+            
+    # print the preorder traversal of the binay tree ( data-left-right)
+            
+    def pre_order_traversal(self,root):
+        if root:
+            print(root.data,end=" ")
+            root.pre_order_traversal(root.left)
+            root.pre_order_traversal(root.right)
+            
+   # print the post order traversal of the binay tree ( left-right-data)
+            
+    def post_order_traversal(self,root):
+        if root:
+            root.post_order_traversal(root.left)
+            root.post_order_traversal(root.right)
+            print(root.data,end=" ")    
         
     def PrintTree(self):
         if self.left:
