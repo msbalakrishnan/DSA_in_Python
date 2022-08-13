@@ -7,7 +7,9 @@ class BinaryTree:
         self.left = None
         self.right = None
         self.data = data
+        
 # code for insertion in binary tree , basically binary  tree contructed based by BST 
+    
     def insert(self, data):
 
         if self.data:
@@ -26,6 +28,7 @@ class BinaryTree:
             self.data = data
            
     # good to refer the another another search code because it contain erro so i used the try block . but it running good 
+    
     def search(self,data):
      try:
         self.flag=False
@@ -57,12 +60,7 @@ for i in range(int(input("enter how many number you want : "))):
         root = BinaryTree(int(input("enter the root element :")))
      else:
         root.insert(int(input(" enter the element: ")))
-# root.insert(55)
-# root.insert(60)
-# root.insert(20)
-# root.insert(52)
 
 root.PrintTree()
 root.search(int(input(" enter a element to search :")))
-# if root.flag:
-#     Print("not found ..")
+
