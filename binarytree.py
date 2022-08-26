@@ -4,6 +4,7 @@ class bst:
         self.data=data
         self.left=None
         self.right=None
+# code for insertion ...
 def insert(root,key):
     if root:
         if root.data<key:
@@ -14,8 +15,76 @@ def insert(root,key):
         root=bst(key)
     return root
 
+#finding the min element in the tree, infact it is left most element 
 
- 
+def minkey(root):
+    if root==None:
+        return None
+    
+    while root:
+        pre=root
+        root=root.left
+    return pre
+
+#this code for deletion in the three case 
+# refer here for more information ..
+#'''https://www.techiedelight.com/deletion-from-bst/'''
+
+def deletion(root,key):
+    
+    parent=None
+    curr=root
+    while curr and curr.data!=key:
+        parent=curr
+        if curr.data>key:
+            curr=curr.left
+        else:
+            curr=curr.right
+    # if the element is not found ...
+    if curr==None:
+        return root
+    if curr.left==None and curr.right==None:
+        if curr!=root:
+            if parent.left==curr:
+                parent.left=None
+            else:
+                parent.right=None
+        else:
+            return None
+    elif curr.left and curr.right:
+        #finding alternate node 
+        var=minkey(curr.right).data
+        #var=6
+        
+        deletion(root,var)
+        curr.data=var
+        
+    else:
+        if curr.left:
+            child=curr.left
+        else:
+            child=curr.right
+        if curr!=root:
+            if parent.left==curr:
+                parent.left=child
+            else:
+                parent.right=child
+        else:
+            root=child
+    return root
+        
+                
+ # finfin the max element in the tree , infact it is right most element ..
+
+
+def maxkey(root):
+    if root==None:
+        return None
+    while root:
+        pre=root
+        root=root.right
+    return pre
+   
 
 def inorder(root):
     #simillarly for pre ,post 
@@ -28,21 +97,32 @@ def inorder(root):
 
         
 root=None
+
 for i in range(int(input("enter how many element you want : "))):
     root=insert(root,int(input("enter the element : ")))
 else:
     print("successfully created ...")
+    
 print("inorder traversal .. ")
+
 inorder(root)
+print("find the minimum element in the tree ")
+r=minkey(root)
+if r:
+    print(" the minimum element is ",r.data)
+else:
+    print("the tree is empty  ...")
+print("find the minimum element in the tree ")
+r=maxkey(root)
+if r :
+    print("max element is ",r.data)
+else:
+    print(" the tree is empty ..")
+    
+#calling a deletion here..  
+root=deletion(root,int(input("enter element to deletion : ")))
 
-
-
-
-
-
-
-
-
+inorder(root)
 
 # create the class with constructor to create a node element 
 
