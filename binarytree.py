@@ -1,3 +1,49 @@
+#perform out side of the class or right way to insert
+class bst:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+def insert(root,key):
+    if root:
+        if root.data<key:
+            root.right=insert(root.right,key)
+        else:
+            root.left=insert(root.left,key)
+    else:
+        root=bst(key)
+    return root
+
+
+ 
+
+def inorder(root):
+    #simillarly for pre ,post 
+    if root==None:
+        return 
+        
+    inorder(root.left)
+    print(root.data)
+    inorder(root.right)
+
+        
+root=None
+for i in range(int(input("enter how many element you want : "))):
+    root=insert(root,int(input("enter the element : ")))
+else:
+    print("successfully created ...")
+print("inorder traversal .. ")
+inorder(root)
+
+
+
+
+
+
+
+
+
+
 # create the class with constructor to create a node element 
 
 class BinaryTree:
